@@ -1,26 +1,6 @@
-# HiFi-GAN: Generative Adversarial Networks for Efficient and High Fidelity Speech Synthesis
+# Modified HiFi-GAN for Assem-VC
 
-### Jungil Kong, Jaehyeon Kim, Jaekyoung Bae
-
-In our [paper](https://arxiv.org/abs/2010.05646), 
-we proposed HiFi-GAN: a GAN-based model capable of generating high fidelity speech efficiently.<br/>
-We provide our implementation and pretrained models as open source in this repository.
-
-**Abstract :**
-Several recent work on speech synthesis have employed generative adversarial networks (GANs) to produce raw waveforms. 
-Although such methods improve the sampling efficiency and memory usage, 
-their sample quality has not yet reached that of autoregressive and flow-based generative models. 
-In this work, we propose HiFi-GAN, which achieves both efficient and high-fidelity speech synthesis. 
-As speech audio consists of sinusoidal signals with various periods, 
-we demonstrate that modeling periodic patterns of an audio is crucial for enhancing sample quality. 
-A subjective human evaluation (mean opinion score, MOS) of a single speaker dataset indicates that our proposed method 
-demonstrates similarity to human quality while generating 22.05 kHz high-fidelity audio 167.9 times faster than 
-real-time on a single V100 GPU. We further show the generality of HiFi-GAN to the mel-spectrogram inversion of unseen 
-speakers and end-to-end speech synthesis. Finally, a small footprint version of HiFi-GAN generates samples 13.4 times 
-faster than real-time on CPU with comparable quality to an autoregressive counterpart.
-
-Visit our [demo website](https://jik876.github.io/hifi-gan-demo/) for audio samples.
-
+## README : TBD
 
 ## Pre-requisites
 1. Python >= 3.6
@@ -98,8 +78,4 @@ You can generate mel-spectrograms using [Tacotron2](https://github.com/NVIDIA/ta
 Generated wav files are saved in `generated_files_from_mel` by default.<br>
 You can change the path by adding `--output_dir` option.
 
-
-## Acknowledgements
-We referred to [WaveGlow](https://github.com/NVIDIA/waveglow), [MelGAN](https://github.com/descriptinc/melgan-neurips) 
-and [Tacotron2](https://github.com/NVIDIA/tacotron2) to implement this.
 
