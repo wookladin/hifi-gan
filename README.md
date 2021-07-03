@@ -3,7 +3,7 @@
 ## Pretrained Model
 To GTA finetune HiFi-GAN models, you should download Pretrained models and transfer from those weight.
 
-You can use pretrained `UNIVERSAL_V1` models authors of HiFi-GAN provide.<br/> 
+You can use pretrained `UNIVERSAL_V1` models authors of [HiFi-GAN](https://github.com/jik876/hifi-gan) provide.<br/> 
 [Download pretrained models](https://drive.google.com/drive/folders/1-eEYTB5Av9jNql0WGBlRoi-WH2J7bp5Y?usp=sharing) <br/> 
 Details of each folder are as in follows:
 
@@ -29,12 +29,12 @@ Details of each folder are as in follows:
 
 
 ## Fine-Tuning
-1. Generate GTA mel-spectrograms in `torch.Tensor` format using [Assem-VC](https://github.com/mindslab-ai/assem-vc) with teacher-forcing.<br/>
+1. Generate GTA mel-spectrograms in `torch.Tensor` format using [Assem-VC](https://github.com/mindslab-ai/assem-vc). <br/>
 The file name of the generated mel-spectrogram should match the audio file and the extension should be `.gta`.<br/>
 Example:
     ```
-    Audio File : LJ001-0001.wav
-    Mel-Spectrogram File : LJ001-0001.wav.gta
+    Audio File : p233_392.wav
+    Mel-Spectrogram File : p233_392.wav.gta
     ```
 2. Run the following command.
     ```bash
@@ -55,12 +55,12 @@ Example:
     python train.py --config config_v1.json \
                     --input_wavs_dir ../datasets/ \
                     --input_mels_dir ../datasets/ \
-                    --input_training_file ../datasets/gta_metadata/gta_vctk_train_10s_g2p.txt \
-                    --input_validation_file ../datasets/gta_metadata/gta_vctk_val_g2p.txt \
+                    --input_training_file ../datasets/gta_metadata/gta_vctk_22k_train_10s_g2p.txt \
+                    --input_validation_file ../datasets/gta_metadata/gta_vctk_22k_val_g2p.txt \
                     --fine_tuning True
     ```
 
-#### Monitoring via Tensorboard
+### Monitoring via Tensorboard
 ```bash
 tensorboard --log_dir cp_hifigan/logs --bind_all
 ```
