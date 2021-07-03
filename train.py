@@ -5,6 +5,7 @@ import os
 import time
 import argparse
 import json
+import tqdm
 import torch
 import torch.nn.functional as F
 from torch.utils.tensorboard import SummaryWriter
@@ -189,7 +190,7 @@ def train(rank, a, h):
                     torch.cuda.empty_cache()
                     val_err_tot = 0
                     with torch.no_grad():
-                        for j, batch in enumerate(validation_loader):
+                        for j, batch in enumerate(tqdm.tqdm(validation_loader, desc="Validating...")):
                             x, y, _, y_mel = batch
                             y_g_hat = generator(x.to(device))
                             y_mel = torch.autograd.Variable(y_mel.to(device, non_blocking=True))
